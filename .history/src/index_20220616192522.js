@@ -1,7 +1,7 @@
 document.addEventListener(`DOMContentLoaded`, () => {
     fetch(`http://localhost:3000/quotes?_embed=likes`)
         .then(resp => resp.json())
-        .then(data => data.forEach(quoteBooks))
+        .then(data => data.forEach(makeEverything))
 
     const submit = document.querySelector(`.btn`).addEventListener(`click`, e => {
         e.preventDefault()
@@ -23,10 +23,10 @@ document.addEventListener(`DOMContentLoaded`, () => {
             })
         })
             .then(resp => resp.json())
-            .then(quoteBooks)
+            .then(makeEverything)
     }
 
-    function quoteBooks({ quote, author, id, likes }) {
+    function makeEverything({ quote, author, id, likes }) {
         const ul = document.getElementById(`quote-list`)
             console.log(likes)
             let li = document.createElement(`li`)
